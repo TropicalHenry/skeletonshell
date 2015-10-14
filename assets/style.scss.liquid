@@ -1,0 +1,547 @@
+/*
+1.CSS Reset.................................................line 9
+2.Header................................................... line 12 
+3.Product Variant Buttons...................................line 42
+4.Product Information.......................................line 76 
+*/
+
+/* ▶ 1. CSS Reset...........................................Snippets > product-information.liquid */
+html, div, span, h1, h2, h3, h4, h5, h6, p,
+a, address, em, strike, strong, b, u, i, input, center,
+dl, dt, dd, ol, ul, li, form, label, article, aside, details, embed, figure, footer, header, menu, nav, section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+  font-size: 100%; }
+html {
+  font-family: arial, sans-serif;
+  font-size: 62.5%;
+  letter-spacing: 0.05rem;
+  text-decoration: none;
+  text-transform: uppercase; }
+body {font-size: 1rem; margin: 0.8rem; }
+article, aside, details, figcaption, figure, footer, header, hgroup, img, menu, nav, section { display: block; }
+img { width: 100%; }
+body { line-height: 1.2; }
+ol, ul { list-style: none; }
+a { text-decoration: none; color: black; }
+h3 { font-size: 1.4rem; padding-bottom: 0.2rem; }
+i { font-style: normal; }
+input { outline: none; }
+.c { text-transform: capitalize; }
+span { font-family: arial,sans-serif; } /* fixes font change when span is in <i></i> and using font awesome */ /*
+
+/* ▶ 2. Header..............................................Snippets > header.liquid */
+header {
+  display: flex;
+  flex-flow: row wrap;
+}
+.toolbar {
+  flex: 1 1px; 
+  font-size: 1rem;
+  display: flex;
+}
+.toolbar.left {
+  justify-content: flex-start;
+}
+.toolbar.right {
+  justify-content: flex-end;
+}
+.utilities {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.utilities.left {
+  margin-left: 10%; 
+}
+.utilities.right {
+  margin-right: 10%; 
+}
+.logo {
+  flex: 2;
+  justify-content: center;
+  display: flex;
+}
+.logo img {
+  width: 100%;
+  max-width: 200px;
+  max-height: 50px;
+}
+.utilities .text {
+  padding-left: 0.4rem;
+}
+
+@media all and (max-width: 40rem) {
+  .utilities {
+    flex-direction: row;
+    font-size: 2.2rem;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+  .utilities.left {
+    margin: 0;
+  }
+  .utilities.right {
+    margin: 0;
+  }
+  .utilities .text {
+    display: none;
+  }
+  .fa {
+    padding: 1rem;
+  }
+}
+nav {
+  flex: 100%;
+  display: flex;
+  justify-content: center;
+}
+nav li{
+  display: inline-block;
+  border-left: 1px solid black;
+  text-align: center;
+  padding: 0 30px;  
+}
+nav li a{
+
+}
+nav li:nth-child(1){
+  border: none;
+}
+
+
+/* ⋯ H E A D E R ⋯ */
+
+header {
+  display: flex;
+  flex-flow: row wrap;
+}
+.toolbar {
+  flex: 1 1px; 
+  font-size: 1rem;
+  display: flex;
+}
+.toolbar.left {
+  justify-content: flex-start;
+}
+.toolbar.right {
+  justify-content: flex-end;
+}
+.utilities {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.utilities.left {
+  margin-left: 10%; 
+}
+.utilities.right {
+  margin-right: 10%; 
+}
+.logo {
+  flex: 2;
+  justify-content: center;
+  display: flex;
+}
+.logo img {
+  width: 100%;
+  max-width: 200px;
+  max-height: 50px;
+}
+.utilities .text {
+  padding-left: 0.4rem;
+}
+
+@media all and (max-width: 40rem) {
+  .utilities {
+    flex-direction: row;
+    font-size: 2.2rem;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+  .utilities.left {
+    margin: 0;
+  }
+  .utilities.right {
+    margin: 0;
+  }
+  .utilities .text {
+    display: none;
+  }
+  .fa {
+    padding: 1rem;
+  }
+}
+nav {
+  flex: 100%;
+  display: flex;
+  justify-content: center;
+}
+nav li{
+  display: inline-block;
+  border-left: 1px solid black;
+  text-align: center;
+  padding: 0 30px;  
+}
+nav li a{
+
+}
+nav li:nth-child(1){
+  border: none;
+}
+/* SEARCH BOX */
+
+.search {
+  display: flex;
+  flex-flow: row-reverse;
+  float: left;
+}
+.search .i {
+  height: 15px;
+  display: flex;
+  align-items: center;
+}
+.search .text {
+  display: flex;
+  align-items: center;
+}
+.search .search-box {
+  width: 0px;
+  height: 15px;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.search .search-box:focus {
+  border: 0 solid black;
+  border-bottom: 1px solid slategray;
+  width: 120px;
+  display: block;
+  transition: all 300ms ease-in-out;
+  font-size: 1.2rem;
+}
+.search-box:focus + .text {
+  display: none;
+}
+
+/* ⋯ C O L L E C T I O N ⋯ */
+.grid {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+ul {
+  list-style: none;
+}
+.item {
+  max-width: 50%;
+  padding: 0.5rem;
+  display: flex;
+  flex-flow: row wrap;
+}
+.item .picture {
+  flex: 1 100%;
+  position: relative;
+}
+.item img {
+  width: 100%;
+  display: block;
+} 
+.item .variants {
+  width: 100%;
+  height: 3rem;
+  position: absolute;
+  bottom: 0;
+  height: 1rem;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+}
+.item:hover .variants {
+  opacity: 1;
+  height: 30%;
+  transition: all 200ms ease-in-out;	
+}
+.item .title{
+  flex: 1 1px;
+}
+.item .price{
+  
+}
+@media all and (min-width: 50em) {
+  .item {
+    max-width: 33.33%;
+  }
+}
+@media all and (min-width: 70em) {
+  .item {
+    max-width: 25%;
+  }
+}
+@media all and (min-width: 90em) {
+  .item {
+    max-width: 20%;
+  }
+}
+
+/* PRODUCT */
+
+.product {
+  display: flex;
+  height: 700px;
+}
+.product .gallery {
+  flex: 3;
+}
+.product .info {
+  flex: 2;
+}
+.info-container {
+  width: 70%;
+  margin: 8rem auto;
+}
+
+
+/* ⋯ PRODUCT VARIANT RADIO BUTTONS ⋯ */
+
+.variants {
+  display: flex;  
+}
+.variants li, .add-to-cart {
+  flex: 1;
+  border: 1px solid black;
+  margin: 0.5rem;
+  height: 30px;
+  position: relative;
+  outline: none; 
+}
+.variants li:nth-child(1) {
+  margin-left: 0;
+}
+.variants li:last-child {
+  margin-right: 0;
+}
+.add-to-cart {
+  margin: 0.5rem 0;
+  background: transparent;
+  cursor: pointer;
+}
+.variants input, .variants label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+.variants label, .add-to-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-btn {
+  display: flex;
+}
+.variants input[type="radio"]:checked + label {
+  background: black;
+  color: white;
+}
+.variants input[type="radio"]{
+    visibility:hidden;
+}
+
+//* ▶ X. Product Description..............................................Snippets > produc */
+
+.description {
+  & dl { display: flex; flex-flow: row wrap; }
+  & dt, & dd {
+    flex: 1 50%;
+    padding: 0.4rem 0;
+    border-bottom: 1px dotted silver; }
+  & dt { font-family: Monaco, Consolas, "Lucida Console", monospace; }
+  & dd { text-transform: capitalize; }
+  & dt:nth-child(1), & dd:nth-child(2) {
+    border-top: 1px dotted silver; }}
+
+/* ⋯ product-information.liquid ⋯ */
+
+.information {
+  width: 100%;
+  position: relative;
+  display: flex;
+  margin-top: 4rem;
+}
+.underline {
+  height: 1px;
+  width: 33.33%;
+  position: absolute;
+  background: black; 
+  bottom: 0; 
+}
+.information label {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 5px;
+  height: 25px;
+  cursor: pointer;
+}
+.information input {
+  position: absolute;
+}
+.information input[type="radio"]{
+    visibility:hidden;details
+}
+.delivery-tab[type="radio"]:checked ~ .underline {
+  transition: all 300ms;
+  left: 0;
+}
+.sizing-tab[type="radio"]:checked ~ .underline {
+  left: 33.33%;
+  transition: all 300ms;
+}
+.returns-tab[type="radio"]:checked ~ .underline {
+  left: 66.66%;
+  transition: all 300ms;
+}
+.delivery-details {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  overflow: hidden;
+}
+.sizing-details {
+  width: 0px;
+  height: 0;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  overflow: hidden;
+}
+.returns-details {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  overflow: hidden;
+}
+.information input[type=radio]:checked + label + div {
+  z-index: 10;
+  width: 100%;
+  height: 300px;
+  transition: all 800ms;
+}
+
+/* ▶ X. Product Delivery..............................................Snippets > product.delivery.liquid */
+.postage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  line-height: 2rem;
+  padding: 1rem;
+  margin: 2rem 0;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpi2r9//38gYGAEESAAEGAAasgJOgzOKCoAAAAASUVORK5CYII=); 
+  & li:nth-child(1) {
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    border-bottom: 1px dashed black;
+    margin-bottom: 0.5rem;
+    line-height: 2rem; }
+  & li span {
+    text-transform: capitalize;
+    padding-left: 0.5rem;
+    font-family: Monaco, Consolas, "Lucida Console", monospace;}
+  &::before {
+    position: absolute;
+    content: '';
+    top: 3px;
+    bottom: 3px;
+    right: 3px;
+    left: 3px;
+    border: 1px solid dimgray; }}
+
+
+
+/* ⋯ BREADCRUMB ⋯ */
+
+.breadcrumb {
+  background: transparent;
+}
+
+
+/* ⋯ P R O D U C T I O N  C O L O R S ⋯ 
+header {
+  background: peachpuff;
+}
+.toolbar {
+  background: springgreen;
+}
+.utilities {
+  background: peachpuff;
+}
+.fa {
+  background: aquamarine;
+}
+.logo {
+  background: darkgray;
+}
+nav {
+  background: salmon;
+}
+.grid {
+    background: pink;
+}
+.item {
+  background: peachpuff;
+}
+.variants {
+  background: darkgray;
+}
+.title{
+  background: pink;
+}
+.price{
+  background: aquamarine;
+}
+form {
+  background: salmon;
+}
+.item:hover .variants {
+  background: pink; 
+}
+.variants li, .add-to-cart {
+  background: darkgray;
+}
+.product .gallery {
+  background: gray;
+}
+.product .info {
+  background: aquamarine;
+}
+.description {
+  background: pink;
+}
+.delivery-details {
+  background: mediumspringgreen;
+}
+.sizing-details {
+  background: peachpuff;
+}
+.returns-details {
+  background: thistle;
+}
+.information label {
+  background: salmon;
+}

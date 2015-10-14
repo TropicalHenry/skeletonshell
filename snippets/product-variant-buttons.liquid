@@ -1,0 +1,44 @@
+<form action="/cart/add" method="post">
+  <ul class="variants">
+    {% for variant in product.variants %}
+	{% if variant.available == true %}
+	<li>
+      <input type="radio" name="id" value="{{variant.id}}" id="radio_{{variant.id}}" {%if forloop.first%} checked="checked" {%endif%} />
+      <label for="radio_{{variant.id}}">{{ variant.title }}</label>
+    </li>
+	{% else %}
+	<li>
+      <span>Sold Out! - {{ variant.title }}</span>
+    </li>
+	{% endif %}
+    {% endfor %}
+  </ul>
+  <ul class="add-btn">
+    <input type="submit" name="add" value="Add to Cart" id="add" class="add-to-cart" />
+  </ul>    
+</form> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

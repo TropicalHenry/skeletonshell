@@ -1,0 +1,16 @@
+<div class='grid'>
+  {% if collection.all_products_count > 0 %}
+  {% for product in collection.products %}
+  <ul class='item'>
+    <li class='picture'>
+      <img src='{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title | escape }}' />
+      <div class='variants'>{% for variant in product.variants %}{{ variant.title | escape }}{{ variant.available | escape }}{% endfor %}</div>
+    </li>
+    <li class='title'><a href='{{ product.url }}'>{{ product.title }}/{{ product.type }}</a></li>
+    <li class='price'>{{ product.price | money}}</li>
+  </ul>
+  {% endfor %}
+  {% else %}
+  <p>Sorry, there are no products in this collection</p>
+  {% endif %}
+</div>

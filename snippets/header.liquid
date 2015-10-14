@@ -1,0 +1,68 @@
+<!--<header>
+  <div id="toolbar">
+      <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
+      <a href="/cart">Check out</a>
+  </div>  
+  <div id="logo">
+    <h1><a href="/">{{ shop.name }}</a></h1>
+  </div>
+    <nav>
+      <div id="navigationbar">
+      <ul>
+        {% for link in linklists.main-menu.links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+      </div>
+    </nav>
+</header>
+
+
+<header>
+  <div class='toolbar'></div>
+  <div class='logo'><img src="http://placehold.it/200x50" /></div>
+  <div class='toolbar'>
+  <a href="/cart"><span class="fa fa-shopping-cart"></span> CART ({{ cart.item_count }}) ({{ cart.total_price | money }})</a>
+      <a href="/cart">Check out</a>
+  <i class="fa fa-user"></i> USER
+  <i class="fa fa-search"></i> SEARCH
+  <i class="fa fa-gbp"></i> GBP
+  <i class="fa fa-sign-in"></i> SIGN IN 
+  </div>  
+  <nav>
+    <ul>
+      {% for link in linklists.main-menu.links %}
+      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header> -->
+
+<header>
+  <div class='toolbar left'>  
+    <div class='utilities left'>
+      <div>
+        <form class='search'>
+          <input required class='search-box' value='' name='' type='text' id='search' />
+          <label class='text' for='search'>searchHELLO</label>
+          <label class='i' for='search'><i class='fa fa-search'></i>
+        </form>
+      </div>
+      <i class='fa fa-gbp'><span class='text'>currency</span></i>
+    </div>
+  </div>
+  <div class='logo'><img src="http://placehold.it/200x50" /></div>
+  <div class='toolbar right'>
+    <div class='utilities right'>
+      <i class='fa fa-user'><span class='text'>sign in</span></i>
+      <a href='/cart'><i class='fa fa-shopping-cart'><span class='text'>cart ({{ cart.item_count }}) ({{ cart.total_price | money }})</span></i></a>
+    </div>    
+  </div>
+  <nav>
+  <ul>
+      {% for link in linklists.main-menu.links %}
+      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>
